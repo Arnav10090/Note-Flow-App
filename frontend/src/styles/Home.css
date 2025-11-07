@@ -1,0 +1,161 @@
+/* Modal overlay and blur styles for Home page */
+.main-content {
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.main-content.blurred {
+  filter: blur(4px) saturate(0.9);
+  pointer-events: none; /* prevent interacting with blurred background */
+  user-select: none;
+}
+
+.notes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px 0;
+}
+.header-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.logout-btn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-note-btn, .logout-btn {
+  transition: background-color 0.12s ease, transform 0.08s ease;
+}
+
+.add-note-btn:hover {
+  background: #1e40af; /* slightly darker blue */
+  transform: translateY(-1px);
+}
+
+.add-note-btn:active {
+  transform: translateY(0);
+}
+
+.logout-btn:hover {
+  background: #dc2626; /* slightly darker red */
+  transform: translateY(-1px);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+.notes-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.notes-sub {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+.add-note-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.notes-list {
+  display: grid;
+  /* responsive multi-column grid of cards */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px 48px; /* row-gap column-gap: increased horizontal spacing */
+  align-items: start;
+  padding-bottom: 40px;
+}
+.no-notes {
+  color: #6b7280;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  padding: 20px;
+}
+.modal {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px 24px;
+  position: relative;
+  /* constrain modal height and allow internal scrolling for long notes */
+  max-height: 80vh;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+}
+.modal-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* reuse some existing form classes if present */
+.card-title {
+  margin: 0 0 12px 0;
+}
+.note-form .field {
+  margin-bottom: 12px;
+}
+.note-form .label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.note-form .input,
+.note-form .textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.btn {
+  background: #0ea5e9;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  /* make spinner rotation period 2s */
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,175 @@
+ .form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 26px rgba(2,6,23,0.08);
+  max-width: 420px;
+}
+
+.form-input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-button {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 20px 0;
+  background: linear-gradient(90deg,#0b78ff,#0066d6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.08s ease;
+}
+
+.form-button:hover {
+  transform: translateY(-1px);
+}
+
+/* secondary action (register link) */
+.form-secondary {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 6px 0 0 0;
+  background: transparent;
+  color: #2563eb;
+  border: 1px solid rgba(37,99,235,0.12);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.12s ease, transform 0.08s ease;
+}
+.form-secondary:hover {
+  background: rgba(37,99,235,0.04);
+  transform: translateY(-1px);
+}
+
+/* Overall layout */
+.note-page {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 20px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
+  color: #111827;
+}
+
+/* Header */
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.notes-title { font-size: 20px; margin: 0; }
+.notes-sub { margin: 0; color: #6b7280; font-size: 13px; }
+
+/* Card */
+.card {
+  background: linear-gradient(180deg, #ffffff, #fbfdff);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+
+/* Card title */
+.card-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #0f172a;
+}
+
+/* Form fields */
+.note-form .field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.label {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 600;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #e6e9ee;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #7c9cff;
+  box-shadow: 0 6px 18px rgba(124,156,255,0.12);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+/* Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #0b78ff, #0066d6);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(6,78,180,0.12); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* spinner (simple stroke animation) */
+.spinner {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  /* make spinner rotation period 2s for login */
+  animation: spin 2s linear infinite;
+}
+.spinner circle {
+  stroke: rgba(255,255,255,0.9);
+  stroke-dasharray: 90;
+  stroke-dashoffset: 60;
+  stroke-linecap: round;
+}
+
+/* small responsive adjustments */
+@media (max-width: 520px) {
+  .note-page { padding: 0 12px; }
+  .actions { justify-content: center; }
+}
+
+/* keyframes */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
